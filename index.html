@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hi David</title>
+        <script src="phaser.min.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+
+        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+        function preload () {
+
+            game.load.image('david', 'david.png');
+            
+            var david;
+var upKey;
+var downKey;
+var leftKey;
+var rightKey;
+        
+        }
+
+        function create () {
+
+        david = game.add.sprite(300, 300, 'david');
+          //  david.anchor.setTo(0.5, 0.5);
+          
+  david.body.collideWorldBounds=true;  
+        
+    upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+    downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+    leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+    rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+
+}
+
+function update() {
+
+    if (upKey.isDown)
+    {
+        david.y -= 6;
+    }
+    else if (downKey.isDown)
+    {
+        david.y += 6;
+    }
+
+    if (leftKey.isDown)
+    {
+        david.x -= 6;
+    }
+    else if (rightKey.isDown)
+    {
+        david.x += 6;
+    }
+
+}
+    };
+
+    </script>
+<div> Use Arrow keys to move.</div>
+    </body>
+</html>
